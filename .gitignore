@@ -1,4 +1,6 @@
 .venv
 .idea
 .coverage
+.tox
 __pycache__
+*.pyc
