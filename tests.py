@@ -2,7 +2,7 @@ import pytest
 import requests
 import requests_mock
 
-from mocker import MockServer, Mock, MockDupError
+from mocker_client import MockServer, Mock, MockDupError
 
 
 @pytest.fixture
