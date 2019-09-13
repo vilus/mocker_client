@@ -19,6 +19,8 @@ deploy:
   password:
     secure: "cqs/8MZdSyifyU/4oTGpfPhJ4mn3TM7IN4aG+lTxeoc9nk2rUQEVSDSAmUyikM3aAnml+4//E1wlr6SUEvxlPijWynbGCwTWHsV/QA9fUYEmKSaOGiQJ9f/hC94dEPgy88f+tTyzrC4zO5UTQaiwRlD1sTf575sWp3oUDTrN9Vqs1KFmdDxQLtuy3bDnS+gPjAty/7UmC1DI3mZoME5AtvkdFhPstWTxGprB5FWIIHShFYeXz8BVo+EiXcJxDPBxQObh8JtTO61GEz2yGMLoaxG1iV4nz3YjJKEezdcniXssfy3hsT9R8nI8hLL7AcFbelZBIJVUblyG6rjOhDXonK3+qls5UtFA2yc+OUxV0zgR1QqVmczYT4N6mSS3eYhtcN/xQUTbD+rYY/yEY9soVRDIbRf8elwcIjJKlOs2oWTEzcRQ8qnwEgC4e4XGVPl9KeSuMY+7sEWJKStIk6ceEDrnKmpTBlVOY3e+/FJHaT90oL1UqNRHfYSgal+Q8LOXFC2zoe1D1lubIn1CWBSZICX+Y+kZQG+jY7Lg8r9SPDguFRSzJjCr8xQMiPVc9yTJviT3Bgt9yLH0gJfoq/1jzhiI165ehqq2pFmmpkbqrHyqEo3knq91tUzexeP4AUxMsWGmL1i5waztOuVEhtC+m+if7gco3Johslo7u9LLLeA="
   skip_existing: true
+  on:
+    condition: $TOXENV = "py37"
 
 after_script:
   - if [ $TOXENV == "py37" ]; then  pytest; fi

@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
     setup(
         name='mocker_client',
-        version='0.0.3dev1',
+        version='0.0.4dev1',
         description='client for http mock server https://github.com/vilus/mocker',
         long_description=long_description,
         packages=['mocker_client'],
