@@ -13,8 +13,12 @@ install:
 script:
   - tox
 
-# deploy
+deploy:
+  provider: pypi
+  user: "vilus"
+  password:
+    secure: "YMVON/8E/NhHL78Pka8Ym6FiYV0HwHIOKlEBaen8HaAu184Rv4fxYKjIxe5nNCYv4/ZN2uiBl4Uf8o5JiSTZGu64dcEMlFVGA2I1SgIP2NQEmYN5UFLuEG+z4pkA7M/a8xUdMi7GN4y8leEuPTf0JlbH/etpDN++UhtICkYXREbmuv6gEJik8V3LnyzYfLDRZ8dLJ93M7UAi5+5qjy6kNaZvSZ8ymk9hh1j2RHMpxXYqAGahfHYQYKcjhE09hLd6B2SZ5KtpEwPAQQl2uzxUDahFSVg8DmFkZgkwH8jJLq4Tipo2NX1AoM/4VNx/L8EvIaNOhdpopeYeWSCjIwYrKWGqimo9C243uKG0WX10BwvPCpfhElmhluiIi2wS4YUMqGVa236WkDk18pOQP0hE9XzkmtFHQJXSpj8Zgfgu8uweOFOSYecSnQsYIuDk+Qp7vVfN1NuWKDxKLJxPZnGaw6OcvxkANJ4YG56viHUOGvGdtYh93gdqpd7+reBC85MT8+s3/lZ30k60q8Moml3UxwMfk7hmTBZiZdM5DnQdpEMs8k/qTSXJPF+B8rp90MDscH5mLE1CaX2lZmYY9wZa2uUL5tDpWFSPWLZLJVqinpY/30sDKt7BwGIhuq740XBrbCFo/woCvu6QHqy47Igtl9CwWCQSK0wS5fIoelZngpY="
 
 after_script:
-  - [[ $TOXENV == "py37" ]] && pytest
-  - [[ $TOXENV == "py37" ]] && codecov -t "$CODECOV_TOKEN" -c "$TRAVIS_COMMIT"
+  - if [ $TOXENV == "py37" ]; then  pytest; fi
+  - if [ $TOXENV == "py37" ]; then codecov -t "$CODECOV_TOKEN" -c "$TRAVIS_COMMIT"; fi

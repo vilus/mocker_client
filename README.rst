@@ -5,6 +5,12 @@ client for http mock server
 .. image:: https://badge.fury.io/py/mocker-client.svg
     :target: https://badge.fury.io/py/mocker-client
 
+.. image:: https://codecov.io/gh/vilus/mocker_client/branch/master/graph/badge.svg
+     :target: https://codecov.io/gh/vilus/mocker_client
+
+.. image:: https://travis-ci.org/vilus/mocker_client.svg?branch=master
+       :target: https://travis-ci.org/vilus/mocker_client
+
 python client for create/delete mocks on mock server
 
 
