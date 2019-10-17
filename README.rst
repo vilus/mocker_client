@@ -23,7 +23,7 @@ Example
 
 .. code-block:: python
 
-    from from mocker_client import MockServer, Mock
+    from mocker_client import MockServer, Mock
 
 
     mock = MockServer(url='http://127.0.0.1:8080/mocker_api/mocks/').create_mock(
@@ -43,6 +43,20 @@ Example
             'body' - response body
             'return_code' - http status code, like 200
             'headers' - dict with http headers
+        :returns Mock object
+    #
+    help(MockServer.create_mocks)
+    create_mocks(self, list_data)
+        :param list_data: list of dicts with keys:
+          'name' - optional, '' by default
+          'route' - for example '/some_path'
+          'method' - a http method like GET, POST, PUT, etc
+          'response_type' - optional, choice from ['single', 'sequence', 'cycle'], 'single' by default
+          'responses' - list of dicts with keys (or just dict if response_type is single):
+            'body' - response body
+            'return_code' - http status code, like 200
+            'headers' - dict with http headers
+        :returns list of Mock objects
     #
     help(Mock.delete)
     delete(self)
