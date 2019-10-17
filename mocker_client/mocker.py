@@ -40,6 +40,7 @@ class MockServer:
             'body' - response body
             'return_code' - http status code, like 200
             'headers' - dict with http headers
+        :returns Mock object
         """
         resp = requests.post(self.url, json=data)
 
@@ -49,3 +50,25 @@ class MockServer:
         resp.raise_for_status()
 
         return Mock(resp.json())
+
+    def create_mocks(self, list_data):
+        """
+        :param list_data: list of dicts with keys:
+          'name' - optional, '' by default
+          'route' - for example '/some_path'
+          'method' - a http method like GET, POST, PUT, etc
+          'response_type' - optional, choice from ['single', 'sequence', 'cycle'], 'single' by default
+          'responses' - list of dicts with keys (or just dict if response_type is single):
+            'body' - response body
+            'return_code' - http status code, like 200
+            'headers' - dict with http headers
+        :returns list of Mock objects
+        """
+        resp = requests.post(self.url, json=list_data)
+
+        if resp.status_code == 409:
+            raise MockDupError(resp.content)
+
+        resp.raise_for_status()
+
+        return [Mock(m) for m in resp.json()]
